@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Allura' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Italiana' rel='stylesheet'>
 </head>
 
 <body>
 
-<span id="birthday">
-    <p id="top">Get your Horoscope:</p>
+<h1>Get your Horoscope:</h1>
+
+<div>
+
+    <p class="defaults">Name:</p>
+
+    <input type="text" id="username">
 
     <p class="defaults">Your Birthday Month:</p>
     <select id="month">
@@ -66,14 +70,15 @@
     <option value="30">30</option>
     <option value="31">31</option>
 </select>
-</span>
+</div>
 
 <button onclick="onSubmit()" id="startButton">Go!</button>
 
 <div id="sign"></div>
 
-<div id="horoscope"></div>
 <img id="img" src="">
+
+<div id="horoscope"></div>
 
 </body>
 
