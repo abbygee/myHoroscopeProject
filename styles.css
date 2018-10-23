@@ -1,44 +1,57 @@
-#top {
+/* styles the header */
+
+h1 {
     font-family: 'Allura';
     font-size: 70px;
     color: white;
     text-align: center;
 }
 
-.defaults {
-    font-family: 'Allura';
-    font-size: 40px;
-    color: white;
+/* styles the subheadings */
+.default {
     text-align: center;
+    display: block;
+    margin: 20px auto 20px auto;
+    font-size: 30px;
+    font-family: Allura;
 }
 
-#month, #day {
+/* styles the user input/select boxes */
+#month, #day, #username {
     display: block;
     margin-left: auto;
     margin-right:auto;
-    margin-top: 10px;
     height: 40px;
-    font-family: 'Allura';
-    font-size: 30px;
+    font-family: 'Times New Roman';
+    font-size: 20px;
     color: black;
 }
+
+/* styles the body */
 body {
     background-image: url(images/nightsky.png);
     color: white;
 }
 
+/* styles the button */
 #startButton {
-    border: ridge;
     display: block;
-    margin: 30px auto 30px auto;
-    width: 90px;
-    height: 50px;
-    font-family: 'Allura';
-    font-size: 30px;
-    color: white;
-    background: none;
+    margin: 50px auto 30px auto;
+    height: 60px;
+    font-family: 'Times New Roman';
+    font-size: 40px;
+    font-style: italic;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
+/* sets button's hover style */
+#startButton:hover {
+    background-color: inherit;
+    color: white;
+}
+
+/* styles the user's sign */
 #sign {
     font-family: 'Allura';
     font-size: 60px;
@@ -46,9 +59,10 @@ body {
     text-align: center;
 }
 
+/* styles the user's horoscope */
 #horoscope{
     margin-top: 20px;
-    font-family: 'Italiana';
+    font-family: 'Times New Roman';
     font-size: 25px;
     color: white;
     text-align: center;
