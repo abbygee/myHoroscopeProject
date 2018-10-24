@@ -11,7 +11,7 @@ var horoscopes = [
     "think you're overthinking it? Nope, you are so close to reaching the conclusion, your analytical virgo mind will never fail you.",
     "stay on your own path and much harmony will be coming your way. Go be great!",
     "congratulations on being born as a Scorpio, the SUPERIOR sign! You hold so much power and the universe is in your hands.",
-    "let your curiosity take you to wherever it lead, you may be surprised.",
+    "let your curiosity take you to wherever it leads, you may be surprised.",
     "please try again"
 ];
 var images = ["images/capri.png", "images/aqua.png", "images/pisces.png", "images/aries.png",
@@ -264,7 +264,7 @@ function determineImage(sign){
     }
 
     if(sign =="Sagittarius"){
-        return images[11];;
+        return images[11];
     }
 }
 

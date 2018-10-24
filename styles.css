@@ -1,5 +1,4 @@
 /* styles the header */
-
 h1 {
     font-family: 'Allura';
     font-size: 70px;
@@ -60,10 +59,16 @@ body {
 }
 
 /* styles the user's horoscope */
-#horoscope{
-    margin-top: 20px;
-    font-family: 'Times New Roman';
+table {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 25px;
-    color: white;
-    text-align: center;
+}
+
+/* styles the user's image */
+#img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
