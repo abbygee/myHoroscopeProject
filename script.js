@@ -1,289 +1,280 @@
-//var signs = ["Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "That's not a real date silly!"];
-//var horoscopes = ["this week may be busy busy, but don't let it get to you! Your Capricorn determination will help you push it through and rise to success!",
-    //"being a strong communicator and holding that charm, new relationships may be coming your way. It's up to you whether they benefit or destroy you.",
-    //"your heart may be too good for your own good! But not this week, don't hesitate to help others, good karma will come your way.",
-    //"feeling overwhelmed? Perhaps try to get some time alone, you are incredibly independent! You don't need others to thrive and be great.",
-    //"don't hold back and chase your desires this week, follow your ambitions and a great fortune will come!",
-    //"despite your quick temper changes, be yourself and act freely. You will remain the gem in every eye!",
-    //"your known as the emotional one, don't let others take advantage of that. Watch out this week for some traitors.",
-    //"is math and science getting on your last nerve? Try relaxing with some arts, you may surprise yourself and find your inner leo creativity.",
-    //"think you're overthinking it? Nope, you are so close to reaching the conclusion, your analytical virgo mind will never fail you.",
-    //"stay on your own path and much harmony will be coming your way. Go be great!",
-    //"congratulation on being born as a Scorpio, the SUPERIOR sign! You hold so much power and the universe is in your hands",
-    //"let your curiosity take you to wherever it lead, you may be surprised.",
-    //"please try again"];
-
+var signs = ["Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "That's not a real date silly!"];
+var horoscopes = [
+    "this week may be busy busy, but don't let it get to you! Your Capricorn determination will help you push it through and rise to success!",
+    "being a strong communicator and holding that charm, new relationships may be coming your way. It's up to you whether they benefit or destroy you.",
+    "your heart may be too good for your own good! But not this week, don't hesitate to help others, good karma will come your way.",
+    "feeling overwhelmed? Perhaps try to get some time alone, you are incredibly independent! You don't need others to thrive and be great.",
+    "don't hold back and chase your desires this week, follow your ambitions and a great fortune will come!",
+    "despite your quick temper changes, be yourself and act freely. You will remain the gem in every eye!",
+    "your known as the emotional one, don't let others take advantage of that. Watch out this week for some traitors.",
+    "is math and science getting on your last nerve? Try relaxing with some arts, you may surprise yourself and find your inner leo creativity.",
+    "think you're overthinking it? Nope, you are so close to reaching the conclusion, your analytical virgo mind will never fail you.",
+    "stay on your own path and much harmony will be coming your way. Go be great!",
+    "congratulations on being born as a Scorpio, the SUPERIOR sign! You hold so much power and the universe is in your hands.",
+    "let your curiosity take you to wherever it lead, you may be surprised.",
+    "please try again"
+];
+var images = ["images/capri.png", "images/aqua.png", "images/pisces.png", "images/aries.png",
+    "images/taurus.png", "images/gemini.png", "images/cancer.png", "images/leo.png",
+    "images/virgo.png", "images/libra.png", "images/scorp.png", "images/sag.png"];
 
 function onSubmit(){
     var userMonth = document.getElementById('month').value;
     var userDay = document.getElementById('day').value;
-
+    var username = document.getElementById('username').value;
     var sign = determineSign(userMonth, userDay);
+    var bday = determineBirthday(userMonth, userDay);
+    var horoscope = determineHoroscope(sign);
+    var image = determineImage(sign);
+
     document.getElementById('sign').innerHTML = sign;
 
-    var horoscope = determineHoroscope(sign);
-    var userName = document.getElementById('username').value;
-    var bday = determineBirthday(userDay, userMonth);
-
-    if(userName.length >= 1){
-        document.getElementById('horoscope').innerHTML = bday + userName + ", " + horoscope;
+    if(username.length >= 1){
+        document.getElementById('horoscope').innerHTML = bday + username + ", " + horoscope;
     }else{
-        document.getElementById('horoscope').innerHTML = bday + horoscope;
+        document.getElementById('horoscope').innerHTML =  bday + horoscope;
     }
 
-    var image = determineImage(sign);
     document.getElementById('img').src = image;
 }
 
 function determineSign(userMonth, userDay){
-    var sign = "";
 
     if(userMonth == 0){
         if(userDay >= 20){
-            sign = "Aquarius";
+            return signs[1]
         }
         if(userDay <= 19){
-            sign = "Capricorn";
+            return signs[0];
         }
     }
 
     if(userMonth == 1){
-        if(userDay >= 19 && userDay <= 28){
-            sign = "Pisces";
+        if(userDay >= 19 && userDay <= 28) {
+            return signs[2];
         }
         if(userDay <= 18){
-            sign = "Aquarius";
+            return signs[1];
         }
         if(userDay > 28){
-            sign = "That's not a real date silly!";
+            return signs[12];
         }
     }
 
     if(userMonth == 2){
         if(userDay <= 20){
-            sign = "Pisces";
+            return signs[2];
         }
         if(userDay >= 21){
-            sign = "Aries";
+            return signs[3];
         }
     }
 
     if(userMonth == 3){
         if(userDay <= 19){
-            sign = "Aries";
+            return signs[3];
         }
         if(userDay >= 20 && userDay <= 30){
-            sign = "Taurus";
+            return signs[4];
         }
         if(userDay > 30){
-            sign = "That's not a real date silly!";
+            return signs[12];
         }
     }
 
     if(userMonth == 4){
         if(userDay <= 20){
-            sign = "Taurus";
+            return signs[4];
         }
         if(userDay >= 21){
-            sign = "Gemini";
+            return signs[5];
         }
     }
 
     if(userMonth == 5){
         if(userDay <= 20){
-            sign = "Gemini";
+            return signs[5];
         }
         if(userDay >= 21 && userDay <= 30){
-            sign = "Cancer";
+            return signs[6];
         }
         if(userDay > 30){
-            sign = "That's not a real date silly!";
+            return signs[12];
         }
     }
 
     if(userMonth == 6){
         if(userDay <= 22){
-            sign = "Cancer";
+            return signs[6];
         }
         if(userDay >= 23){
-            sign = "Leo";
+            return signs[7];
         }
     }
 
     if(userMonth == 7){
         if(userDay <= 22){
-            sign = "Leo";
+            return signs[7];
         }
         if(userDay >= 23){
-            sign = "Virgo";
+            return signs[8];
         }
     }
 
     if(userMonth == 8){
         if(userDay <= 22){
-            sign = "Virgo";
+            return signs[8];
         }
         if(userDay >= 23 && userDay <= 30){
-            sign = "Libra";
+            return signs[9];
         }
         if(userDay > 30){
-            sign = "That's not a real date silly!";
+            return signs[12];
         }
     }
 
     if(userMonth == 9){
         if(userDay <= 22){
-            sign = "Libra";
+            return signs[9];
         }
         if(userDay >= 23){
-            sign = "Scorpio";
+            return signs[10];
         }
     }
 
     if(userMonth == 10){
         if(userDay <= 21){
-            sign = "Scorpio";
+            return signs[10];
         }
         if(userDay >= 22 && userDay <= 30){
-            sign = "Sagittarius";
+            return signs[11];
         }
         if(userDay > 30){
-            sign = "That's not a real date silly!";
+            return signs[12];
         }
     }
 
     if(userMonth == 11){
         if(userDay <= 21){
-            sign = "Sagittarius";
+            return signs[11];
         }
         if(userDay >= 22){
-            sign = "Capricorn";
+            return signs[0];
         }
     }
-    return sign;
 }
 
 function determineHoroscope(sign){
-    var horoscope = "";
-
     if(sign == "Capricorn"){
-        horoscope = "this week may be busy busy, but don't let it get to you! Your Capricorn determination will help you push it through and rise to success!";
+        return horoscopes[0];
     }
 
     if(sign == "Aquarius"){
-        horoscope = "being a strong communicator and holding that charm, new relationships may be coming your way. It's up to you whether they benefit or destroy you.";
+        return horoscopes[1];
     }
 
     if(sign == "Pisces"){
-        horoscope = "your heart may be too good for your own good! But not this week, don't hesitate to help others, good karma will come your way.";
+        return horoscopes[2];
     }
 
     if(sign == "Aries"){
-        horoscope = "feeling overwhelmed? Perhaps try to get some time alone, you are incredibly independent! You don't need others to thrive and be great.";
+        return horoscopes[3];
     }
 
     if(sign == "Taurus"){
-        horoscope = "don't hold back and chase your desires this week, follow your ambitions and a great fortune will come!";
+        return horoscopes[4];
     }
 
     if(sign == "Gemini"){
-        horoscope = "despite your quick temper changes, be yourself and act freely. You will remain the gem in every eye!";
+        return horoscopes[5];
     }
 
     if(sign == "Cancer"){
-        horoscope = "your known as the emotional one, don't let others take advantage of that. Watch out this week for some traitors.";
+        return horoscopes[6];
     }
 
     if(sign == "Leo"){
-        horoscope = "is math and science getting on your last nerve? Try relaxing with some arts, you may surprise yourself and find your inner leo creativity.";
+        return horoscopes[7];
     }
 
     if(sign == "Virgo"){
-        horoscope = "think you're overthinking it? Nope, you are so close to reaching the conclusion, your analytical virgo mind will never fail you.";
+        return horoscopes[8];
     }
 
     if(sign == "Libra"){
-        horoscope = "stay on your own path and much harmony will be coming your way. Go be great!";
+        return horoscopes[9];
     }
 
     if(sign == "Scorpio"){
-        horoscope = "congratulation on being born as a Scorpio, the SUPERIOR sign! You hold so much power and the universe is in your hands";
+        return horoscopes[10];
     }
 
     if(sign =="Sagittarius"){
-        horoscope = "let your curiosity take you to wherever it lead, you may be surprised.";
+        return horoscopes[11];
     }
 
     if(sign == "That's not a real date silly!"){
-        horoscope = "please try again";
+        return horoscopes[12];
     }
-
-    return horoscope;
 }
 
 function determineImage(sign){
-    var src = "";
-
     if(sign == "Capricorn"){
-        src = "images/capri.png";
+        return images[0];
     }
 
     if(sign == "Aquarius"){
-        src = "images/aqua.png";
+        return images[1];
     }
 
     if(sign == "Pisces"){
-        src = "images/pisces.png";
+        return images[2];
     }
 
     if(sign == "Aries"){
-        src = "images/aries.png";
+        return images[3];
     }
 
     if(sign == "Taurus"){
-        src = "images/taurus.png";
+        return images[4];
     }
 
     if(sign == "Gemini"){
-        src = "images/gemini.png";
+        return images[5];
     }
 
     if(sign == "Cancer"){
-        src = "images/cancer.png";
+        return images[6];
     }
 
     if(sign == "Leo") {
-        src = "images/leo.png";
+        return images[7];
     }
 
     if(sign == "Virgo"){
-        src = "images/virgo.png";
+        return images[8];
     }
 
     if(sign == "Libra"){
-        src = "images/libra.png";
+        return images[9];
     }
 
     if(sign == "Scorpio"){
-        src = "images/scorp.png";
+        return images[10];
     }
 
     if(sign =="Sagittarius"){
-        src = "images/sag.png";
+        return images[11];;
     }
-
-    return src;
 }
 
-function determineBirthday(userDay, userMonth){
+function determineBirthday(userMonth, userDay){
     var bday = "";
     var currentDate = new Date();
     var currentMonth = currentDate.getMonth();
     var currentDay = currentDate.getDate();
-
     if(userDay == currentDay && userMonth == currentMonth){
         bday = "Happy Birthday! ";
     }
-
     return bday;
 }
